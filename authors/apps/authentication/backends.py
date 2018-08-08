@@ -8,3 +8,4 @@
 
 """Configure JWT Here"""
 
+JWTAuthentication = ''
