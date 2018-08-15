@@ -1,6 +1,8 @@
 Authors Haven - A Social platform for the creative at heart.
 =======
 
+[![Build Status](https://travis-ci.org/inno-asiimwe/writers_haven_django.svg?branch=develop)](https://travis-ci.org/inno-asiimwe/writers_haven_django) [![Coverage Status](https://coveralls.io/repos/github/inno-asiimwe/writers_haven_django/badge.svg?branch=develop)](https://coveralls.io/github/inno-asiimwe/writers_haven_django?branch=develop)
+
 ## Vision
 Create a community of like minded authors to foster inspiration and innovation
 by leveraging the modern web.
