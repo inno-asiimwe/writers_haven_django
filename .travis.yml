@@ -1,0 +1,17 @@
+language: python
+python:
+- '3.6'
+services:
+- postgresql
+before_script:
+- psql -c "create database ah;" -U postgres
+- python manage.py makemigrations
+install:
+- pip install -r requirements.txt
+- pip install coveralls
+script: coverage run --source='.' manage.py test
+after_script:
+- coveralls
+notifications:
+  slack:
+    secure: Y8xHcb3A2zdzwl/xEyD+jtER/fFVADPjulz6FStdFuYqCyIzaJZ1We1nc5DGHlv1h3HjnLk0FYIXJWWsYYxCGfBdiiTAeDNxIwCtVibFffGRekCO00+5zz58NOxadeYzBPiF7VPS7z1ncinBaeISz1P4VKDma+05YuLJJaGPgqCotlsrHFt8o/4A/VUz3jTS9wtYV7Em260GACfW8awNyiFNlTN8eybAk+K5/zD6QaAWis7CdXlV5xMZwpnKWvMOLnEIQGQ8BV578UZLJ54Js3xJ7wj1MPUNT3X3VXeq4hbqbBTEPX0lT4X41bocIhuB5YEGiRiIb190XY+OlcxYLng8qOaxBitrLUYgeh9ze1N7PhdlK0pLMJzvYsVlQz9OzPTtIRnNTQ3Ka2OZX17ZxeWxHxmsaxRi8jz6OGMnuRxCcsWLOeruBYCyysvlPajic3To/wFZu/4kwWfKbWZ9sWz6IrwT3HQUcL4Ven9Spqhl4aZ/GQlKVfgupbGtrwpOD7Z5dISHcwtpCj0b8ak92i2wGIf7BE9v5NbTSsh/TPWZn3Z9Y3Zi8sj3FTvWXyqNsF/j6xlEaRG8Xss2oRYlgtDBk6McvE/ciWgl3S43FELC5Fmar2c4gX9YIsC9S+ecVdkImMCrmPekhf6dHrgubT0Ut0NGfAPx9M7Lan8Lfys=
