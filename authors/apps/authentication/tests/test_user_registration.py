@@ -32,6 +32,7 @@ class TestUserRegistration(TestCase):
         self.assertEqual(response.status_code, 201)
         self.assertIn('Jacob390', data['username'])
         self.assertIn('jake@jake39.jake', data['email'])
+        self.assertIn('token', data)
 
     def test_duplicate_user_registration(self):
         """Test failure to register a duplicate user."""
