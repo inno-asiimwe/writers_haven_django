@@ -11,7 +11,12 @@ class UserJSONRenderer(JSONRenderer):
         # or something similar), `data` will contain an `errors` key. We want
         # the default JSONRenderer to handle rendering errors, so we need to
         # check for this case.
+
+        token = data.get('token', None)
         errors = data.get('errors', None)
+
+        if token and isinstance(token, bytes):
+            data['token'] = data.decode(self.charset)
 
         if errors is not None:
             # As mentioned about, we will let the default JSONRenderer handle

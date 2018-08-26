@@ -40,6 +40,7 @@ class TestUserLogin(TestCase):
         data = response.data
         self.assertEqual(response.status_code, 200)
         self.assertIn("jake@jake39.jake", data['email'])
+        self.assertIn('token', data)
 
     def test_user_login_wrong_credentials(self):
         """Test login with wrong credentials"""
